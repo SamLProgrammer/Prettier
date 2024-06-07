@@ -1,0 +1,19 @@
+const prettier = require('prettier');
+
+const formatCode = async (req, res) => {
+    const { code } = req.body;
+    console.log(code);
+    try {
+        // Format the code using Prettier
+        const formattedCode = await prettier.format(code, { parser: 'babel' });
+        console.log(formattedCode);
+        res.json({ formattedCode });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+
+}
+
+module.exports = {
+    formatCode,
+};
