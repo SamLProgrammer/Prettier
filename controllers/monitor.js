@@ -4,7 +4,7 @@ const formatCode = async (req, res) => {
     const { code } = req.body;
     console.log(code);
     try {
-        const formattedCode = await prettier.format(code, { parser: "html" });
+        const formattedCode = await prettier.format(code, { parser: "babel" });
         console.log(formattedCode);
         res.json({ formattedCode });
     } catch (error) {
