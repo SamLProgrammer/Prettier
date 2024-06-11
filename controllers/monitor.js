@@ -7,7 +7,7 @@ const formatCode = async (req, res) => {
     // const codeToFormat = code.replace(/\s+/g, ' ').replace(/(["'])/g, '\\$1');
 
     try {
-        const formattedCode = await prettier.format(code, { parser: "babel" });
+        const formattedCode = await prettier.format(code, { parser: "lwc" });
         console.log(formattedCode);
         res.json({ formattedCode });
     } catch (error) {
