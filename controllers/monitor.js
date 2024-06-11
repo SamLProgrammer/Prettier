@@ -4,10 +4,10 @@ const formatCode = async (req, res) => {
     const { code } = req.body;
 
     // Apply replacements directly on the code string
-    const codeToFormat = code.replace(/\s+/g, ' ').replace(/(["'])/g, '\\$1');
+    // const codeToFormat = code.replace(/\s+/g, ' ').replace(/(["'])/g, '\\$1');
 
     try {
-        const formattedCode = await prettier.format(codeToFormat, { parser: "lwc" });
+        const formattedCode = await prettier.format(code, { parser: "lwc" });
         console.log(formattedCode);
         res.json({ formattedCode });
     } catch (error) {
